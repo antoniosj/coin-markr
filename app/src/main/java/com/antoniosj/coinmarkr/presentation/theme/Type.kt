@@ -1,4 +1,4 @@
-package com.antoniosj.coinmarkr.ui.theme
+package com.antoniosj.coinmarkr.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

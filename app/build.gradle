@@ -41,8 +41,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
 
-        def kotlin_compiler_version = "1.4.31"
-        kotlinCompilerVersion kotlin_compiler_version
+        kotlinCompilerVersion kotlin_version
     }
 }
 
@@ -54,6 +53,8 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
     implementation 'androidx.activity:activity-compose:1.3.0-beta01'
 
+    //my modules
+    implementation project(':core')
 
     //compose
     def compose_layout = "1.0.0-alpha07"
