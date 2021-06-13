@@ -10,6 +10,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import com.antoniosj.coinmarkr.data.api.CryptoService
@@ -33,7 +34,17 @@ class MainActivity : ComponentActivity() {
             CoinMarkrTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    viewModel.temp()
+
+                    viewModel.result.observe(this) {
+                        Log.d("ASJ", "vw4" + it.toString())
+                    }
+
+                    viewModel.temp().observe(this, Observer { cryptos ->
+                        cryptos?.let {
+                            Log.d("ASJ", it.toString())
+                        }
+
+                    })
                     Greeting("Android")
 
                 }

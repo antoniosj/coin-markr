@@ -4,7 +4,7 @@ import androidx.lifecycle.Transformations.map
 import com.antoniosj.coinmarkr.data.model.CryptoResponse
 import com.antoniosj.model.Crypto
 
-fun List<CryptoResponse>.toCrypto() = map {
+fun List<CryptoResponse>.toCryptoModel() = map {
     Crypto(
         id = it.id,
         symbol = it.symbol,

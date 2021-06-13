@@ -1,8 +1,8 @@
-package com.antoniosj.data
+package com.antoniosj.repository
 
 import com.antoniosj.data.util.NetworkState
 import kotlinx.coroutines.flow.Flow
 
-interface CryptoDataSource<T> {
+interface CryptoRepository<T> {
     fun getAllCrypto(): Flow<List<T>>
 }
