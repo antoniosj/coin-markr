@@ -36,15 +36,10 @@ class MainActivity : ComponentActivity() {
                 Surface(color = MaterialTheme.colors.background) {
 
                     viewModel.result.observe(this) {
-                        Log.d("ASJ", "vw4" + it.toString())
+                          Log.d("ASJ", "vw6 d" + it.toString())
+                        val a = "000111"
+                        val s = a.toInt(2)
                     }
-
-                    viewModel.temp().observe(this, Observer { cryptos ->
-                        cryptos?.let {
-                            Log.d("ASJ", it.toString())
-                        }
-
-                    })
                     Greeting("Android")
 
                 }

@@ -7,6 +7,7 @@ import com.antoniosj.data.CryptoDataSource
 import com.antoniosj.data.util.NetworkState
 import com.antoniosj.model.Crypto
 import com.antoniosj.repository.CryptoRepository
+import com.antoniosj.usecase.UseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -14,20 +15,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CryptoListViewModel @Inject constructor(
-    val repository: CryptoRepository<Crypto>
+    val useCase: UseCase<Crypto>
 ) : ViewModel() {
 
-    var cryptoList = MutableLiveData<List<Crypto>>()
+      val result = useCase.getCryptos.invoke().asLiveData()
+//
+//    var result = repository.getAllCrypto().asLiveData()
+//    var result2 = repository.getAllCrypto().asLiveData().map { NetworkState.Success(it) }
 
-    var result = repository.getAllCrypto().asLiveData()
-
-    fun temp(): LiveData<List<Crypto>> {
-        viewModelScope.launch {
-            repository.getAllCrypto().collect {
-                cryptoList.value = it
-            }
-          //  Log.d("ASJ", "vw2" + result.value.toString())
-        }
-        return cryptoList
-    }
 }
