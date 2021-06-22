@@ -11,10 +11,6 @@ import javax.inject.Inject
 class CryptoRepositoryImpl @Inject constructor(val api: CryptoDataSource<Crypto>) :
     CryptoRepository<Crypto> {
 
-    var a = 0
-    private set
-    public get()
-
     override fun getAllCrypto(): Flow<List<Crypto>> {
         return api.getAllCrypto()
     }
