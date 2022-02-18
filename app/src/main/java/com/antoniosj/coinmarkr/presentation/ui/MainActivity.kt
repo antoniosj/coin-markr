@@ -40,7 +40,6 @@ class MainActivity : ComponentActivity() {
             val list by viewModel.result.observeAsState(initial = emptyList())
 
             CoinMarkrTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
                     if (list.isNotEmpty()) {
                         Cryptos(cryptos = list)
